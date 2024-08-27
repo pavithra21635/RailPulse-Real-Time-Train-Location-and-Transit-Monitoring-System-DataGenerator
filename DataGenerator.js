@@ -39,7 +39,7 @@ async function DataGeneration(authorizationToken){
     // setInterval(generateAndSaveData, 30000);
     setInterval(() => {
         trains.forEach(train => generateAndSaveData(train.trainId, train.routeKey));
-    }, 30000);
+    }, 1000);
     
 }
 
@@ -73,6 +73,18 @@ let currentWaypointIndices = {
     'Colombo to kurunegala': 0
 };
 
+let travelDirections = {
+    'Colombo to Kandy': 'forward',
+    'Colombo to negombo': 'forward',
+    'Colombo to awissawella': 'forward', 
+    'Colombo to puttalam': 'forward', 
+    'Colombo to Galle': 'forward', 
+    'Colombo to Polgahawela': 'forward', 
+    'Colombo to Padukka': 'forward',
+    'Colombo to Mahawa': 'forward',
+    'Colombo to Anuradhapura': 'forward',
+    'Colombo to kurunegala': 'forward'
+};
 
 
 
@@ -80,8 +92,14 @@ let currentWaypointIndices = {
 
 // Function to generate and send train location data
 async function generateAndSaveData(trainId, routeKey) {
-    const currentWaypointIndex = currentWaypointIndices[trainId];
-    const waypoint = trainRoute[routeKey][currentWaypointIndex];
+    let currentWaypointIndex = currentWaypointIndices[trainId];
+    const route = trainRoute[routeKey];
+    const totalWaypoints = route.length;
+    // Get the waypoint for the current index
+    const waypoint = route[currentWaypointIndex];
+
+
+    //const waypoint = trainRoute[routeKey][currentWaypointIndex];
        
         const locationData = {
             trainId: trainId,
@@ -98,7 +116,21 @@ async function generateAndSaveData(trainId, routeKey) {
         console.log('Location data generation completed');
 
         // Move to the next waypoint
-    currentWaypointIndices[trainId] = (currentWaypointIndices[trainId] + 1) % trainRoute[routeKey].length;
+    //currentWaypointIndices[trainId] = (currentWaypointIndices[trainId] + 1) % trainRoute[routeKey].length;
+    // Update the waypoint index based on direction
+    if (travelDirections[trainId] === 'forward') {
+        currentWaypointIndex = (currentWaypointIndex + 1) % totalWaypoints;
+        if (currentWaypointIndex === 0) {
+            travelDirections[trainId] = 'backward';
+        }
+    } else {
+        currentWaypointIndex = (currentWaypointIndex - 1 + totalWaypoints) % totalWaypoints;
+        if (currentWaypointIndex === totalWaypoints - 1) {
+            travelDirections[trainId] = 'forward';
+        }
+    }
+
+    currentWaypointIndices[trainId] = currentWaypointIndex;
 }
 
 
