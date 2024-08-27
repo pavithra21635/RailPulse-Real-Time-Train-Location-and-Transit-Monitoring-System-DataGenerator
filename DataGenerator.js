@@ -11,16 +11,25 @@ let authorizationToken;
 async function getSuccessToken(token){
     authorizationToken = token;
     await DataGeneration();
-
 }
 
-//
+
 //starting data generation
 async function DataGeneration(authorizationToken){
-    await mongoose.connect(process.env.CONNECTION_STRING, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-    });
+    async function connectWithRetry() {
+        try {
+            await mongoose.connect(process.env.CONNECTION_STRING, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+            console.log('MongoDB connection successful');
+        } catch (err) {
+            console.error('Failed to connect to MongoDB, retrying...', err);
+            setTimeout(connectWithRetry, 5000); // Retry after 5 seconds
+        }
+    }
+
+    await connectWithRetry();
 
     // Define all trains and routes
     const trains = [
@@ -39,7 +48,7 @@ async function DataGeneration(authorizationToken){
     // setInterval(generateAndSaveData, 30000);
     setInterval(() => {
         trains.forEach(train => generateAndSaveData(train.trainId, train.routeKey));
-    }, 1000);
+    }, 500);
     
 }
 
@@ -58,8 +67,7 @@ const trainLocationSchema = new mongoose.Schema({
 const TrainLocation = mongoose.model('TrainLocation', trainLocationSchema);
 
 
-// // Initialize current waypoint index
-
+// Initialize current waypoint index
 let currentWaypointIndices = {
     'Colombo to kandy': 0,
     'Colombo to negombo': 0,
@@ -87,15 +95,11 @@ let travelDirections = {
 };
 
 
-
-
-
 // Function to generate and send train location data
 async function generateAndSaveData(trainId, routeKey) {
     let currentWaypointIndex = currentWaypointIndices[trainId];
     const route = trainRoute[routeKey];
     const totalWaypoints = route.length;
-    // Get the waypoint for the current index
     const waypoint = route[currentWaypointIndex];
 
 
@@ -110,13 +114,19 @@ async function generateAndSaveData(trainId, routeKey) {
 
         console.log('Sending location data to database for ${trainId}:', locationData);
 
+        try {
         // Save data to MongoDB
         const trainLocation = new TrainLocation(locationData);
         await trainLocation.save();
         console.log('Location data generation completed');
 
-        // Move to the next waypoint
+    } catch (err) {
+        console.error('Error saving location data to database:', err);
+    }
+
+    // Move to the next waypoint
     //currentWaypointIndices[trainId] = (currentWaypointIndices[trainId] + 1) % trainRoute[routeKey].length;
+    
     // Update the waypoint index based on direction
     if (travelDirections[trainId] === 'forward') {
         currentWaypointIndex = (currentWaypointIndex + 1) % totalWaypoints;
