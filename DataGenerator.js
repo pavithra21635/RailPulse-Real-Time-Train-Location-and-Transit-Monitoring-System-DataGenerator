@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 const authentication = require('./authentication')
 const axios = require('axios');
+const trainRoute = require('./trainRoute');
 require('dotenv').config();
 
 let authorizationToken;
@@ -20,13 +21,15 @@ async function DataGeneration(authorizationToken){
     useNewUrlParser: true,
     useUnifiedTopology: true
     });
-
-    //////////////////////
-    setInterval(generateAndSendData, 30000);
-    ////////////////////
+    
+    setInterval(generateAndSaveData, 30000);
+    
 }
 
-// MongoDB schema for Train Location Data
+
+
+//Train location data schema
+////////////////////////
 const trainLocationSchema = new mongoose.Schema({
     trainId: String,
     latitude: Number,
@@ -37,45 +40,36 @@ const trainLocationSchema = new mongoose.Schema({
 // MongoDB model for Train Location Data
 const TrainLocation = mongoose.model('TrainLocation', trainLocationSchema);
 
-// Train IDs for two different trains
-const trains = [
-    { trainId: 'Train1', route: 'Colombo to Kandy' },
-    { trainId: 'Train2', route: 'Galle to Colombo' }
-];
 
-// Function to generate random GPS coordinates within a specific range
-function getRandomCoordinates(baseLat, baseLng, radius = 0.1) {
-    const randomOffset = () => (Math.random() - 0.5) * radius * 2;
-    return {
-        latitude: baseLat + randomOffset(),
-        longitude: baseLng + randomOffset()
-    };
-}
+// Initialize current waypoint index
+let currentWaypointIndex = 0;
 
-// Base coordinates for each train's route
-const trainBaseCoordinates = {
-    'Train1': { latitude: 6.9271, longitude: 79.8612 }, // Colombo
-    'Train2': { latitude: 6.0535, longitude: 80.2210 }  // Galle
-};
+
+
+
+
 
 // Function to generate and send train location data
-async function generateAndSendData() {
-    for (const train of trains) {
-        const { latitude, longitude } = getRandomCoordinates(trainBaseCoordinates[train.trainId].latitude, trainBaseCoordinates[train.trainId].longitude);
+async function generateAndSaveData() {
+    const waypoint = trainRoute[currentWaypointIndex];
+       
         const locationData = {
-            trainId: train.trainId,
-            latitude,
-            longitude,
+            trainId: 'train1',
+            latitude: waypoint.latitude,
+            longitude: waypoint.longitude,
             timestamp: new Date()
         };
+
+        console.log('Sending location data to database:', locationData);
 
         // Save data to MongoDB
         const trainLocation = new TrainLocation(locationData);
         await trainLocation.save();
-        console.log('Weather data generation completed');
+        console.log('Location data generation completed');
 
-        
-    }
+        // Move to the next waypoint
+    currentWaypointIndex = (currentWaypointIndex + 1) % trainRoute.length;
 }
+
 
 module.exports = {getSuccessToken};
