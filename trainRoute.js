@@ -1,5 +1,6 @@
 
-const trainRoute = [
+const trainRoute = {
+    route1: [
     {"latitude": 7.47657, "longitude": 80.3741},
     {"latitude": 7.47855, "longitude": 80.37362},
     {"latitude": 7.48506, "longitude": 80.36429},
@@ -50,7 +51,61 @@ const trainRoute = [
     {"latitude": 6.97635, "longitude": 80.05167},
     {"latitude": 6.93828, "longitude": 80.01766},
     {"latitude": 6.86624, "longitude": 79.91689}
+],
+
+route2: [
+    {"latitude": 7.28989, "longitude": 80.63264},
+        {"latitude": 7.28775, "longitude": 80.62967},
+        {"latitude": 7.28547, "longitude": 80.62685},
+        {"latitude": 7.28174, "longitude": 80.62259},
+        {"latitude": 7.2798, "longitude": 80.62012},
+        {"latitude": 7.27888, "longitude": 80.61834},
+        {"latitude": 7.27656, "longitude": 80.61583},
+        {"latitude": 7.27485, "longitude": 80.61329},
+        {"latitude": 7.27211, "longitude": 80.60795},
+        {"latitude": 7.27059, "longitude": 80.60592},
+        {"latitude": 7.26672, "longitude": 80.60202},
+        {"latitude": 7.26249, "longitude": 80.59958},
+        {"latitude": 7.261, "longitude": 80.5981},
+        {"latitude": 7.25957, "longitude": 80.59592},
+        {"latitude": 7.25792, "longitude": 80.59138},
+        {"latitude": 7.25754, "longitude": 80.59045},
+        {"latitude": 7.25782, "longitude": 80.52075},
+        {"latitude": 7.25735, "longitude": 80.51906},
+        {"latitude": 7.25671, "longitude": 80.51688},
+        {"latitude": 7.25669, "longitude": 80.51513},
+        {"latitude": 7.25631, "longitude": 80.51408},
+        {"latitude": 7.2555, "longitude": 80.51306},
+        {"latitude": 7.25479, "longitude": 80.51083},
+        {"latitude": 7.2542, "longitude": 80.50936},
+        {"latitude": 7.25422, "longitude": 80.5074},
+        {"latitude": 7.25373, "longitude": 80.50589},
+        {"latitude": 7.25389, "longitude": 80.50461},
+        {"latitude": 7.25515, "longitude": 80.50302},
+        {"latitude": 7.25763, "longitude": 80.49832},
+        {"latitude": 7.25748, "longitude": 80.4984},
+        {"latitude": 7.25513, "longitude": 80.49952},
+        {"latitude": 7.25409, "longitude": 80.5011},
+        {"latitude": 7.25404, "longitude": 80.5022},
+        {"latitude": 7.25453, "longitude": 80.50312},
+        {"latitude": 7.25432, "longitude": 80.50638},
+        {"latitude": 7.25234, "longitude": 80.507},
+        {"latitude": 7.25064, "longitude": 80.50727},
+        {"latitude": 7.24796, "longitude": 80.50688},
+        {"latitude": 7.24644, "longitude": 80.50783},
+        {"latitude": 7.2447, "longitude": 80.50777},
+        {"latitude": 7.2424, "longitude": 80.50775},
+        {"latitude": 7.24203, "longitude": 80.50859},
+        {"latitude": 7.24107, "longitude": 80.5091},
+        {"latitude": 7.24037, "longitude": 80.50876},
+        {"latitude": 7.23806, "longitude": 80.50908},
+        {"latitude": 7.23611, "longitude": 80.51027},
+        {"latitude": 7.23414, "longitude": 80.51215},
+        {"latitude": 7.23322, "longitude": 80.51322},
+        {"latitude": 7.23333, "longitude": 80.51437},
+        {"latitude": 7.23417, "longitude": 80.51494}
+
 ]
-;
+};
 
 module.exports = trainRoute;

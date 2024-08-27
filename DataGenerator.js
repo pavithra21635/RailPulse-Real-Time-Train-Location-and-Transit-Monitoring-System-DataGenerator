@@ -22,7 +22,9 @@ async function DataGeneration(authorizationToken){
     useUnifiedTopology: true
     });
     
-    setInterval(generateAndSaveData, 30000);
+    // setInterval(generateAndSaveData, 30000);
+    setInterval(() => generateAndSaveData('train1', 'route1'), 30000); // Train 1 with route 1
+    setInterval(() => generateAndSaveData('train2', 'route2'), 30000);
     
 }
 
@@ -41,8 +43,13 @@ const trainLocationSchema = new mongoose.Schema({
 const TrainLocation = mongoose.model('TrainLocation', trainLocationSchema);
 
 
-// Initialize current waypoint index
-let currentWaypointIndex = 0;
+// // Initialize current waypoint index
+// let currentWaypointIndex = 0;
+
+let currentWaypointIndices = {
+    train1: 0,
+    train2: 0,
+};
 
 
 
@@ -50,17 +57,18 @@ let currentWaypointIndex = 0;
 
 
 // Function to generate and send train location data
-async function generateAndSaveData() {
-    const waypoint = trainRoute[currentWaypointIndex];
+async function generateAndSaveData(trainId, routeKey) {
+    const currentWaypointIndex = currentWaypointIndices[trainId];
+    const waypoint = trainRoute[routeKey][currentWaypointIndex];
        
         const locationData = {
-            trainId: 'train1',
+            trainId: trainId,
             latitude: waypoint.latitude,
             longitude: waypoint.longitude,
             timestamp: new Date()
         };
 
-        console.log('Sending location data to database:', locationData);
+        console.log('Sending location data to database for ${trainId}:', locationData);
 
         // Save data to MongoDB
         const trainLocation = new TrainLocation(locationData);
@@ -68,7 +76,7 @@ async function generateAndSaveData() {
         console.log('Location data generation completed');
 
         // Move to the next waypoint
-    currentWaypointIndex = (currentWaypointIndex + 1) % trainRoute.length;
+    currentWaypointIndices[trainId] = (currentWaypointIndices[trainId] + 1) % trainRoute[routeKey].length;
 }
 
 
