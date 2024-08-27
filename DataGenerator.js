@@ -21,10 +21,25 @@ async function DataGeneration(authorizationToken){
     useNewUrlParser: true,
     useUnifiedTopology: true
     });
+
+    // Define all trains and routes
+    const trains = [
+        { trainId: 'Colombo to kandy', routeKey: 'route1' },
+        { trainId: 'Colombo to negombo', routeKey: 'route2' },
+        { trainId: 'Colombo to awissawella', routeKey: 'route3' },
+        { trainId: 'Colombo to puttalam', routeKey: 'route4' },
+        { trainId: 'Colombo to Galle', routeKey: 'route5' },
+        { trainId: 'Colombo to Polgahawela', routeKey: 'route6' },
+        { trainId: 'Colombo to Padukka', routeKey: 'route7' },
+        { trainId: 'Colombo to Mahawa', routeKey: 'route8' },
+        { trainId: 'Colombo to Anuradhapura', routeKey: 'route9' },
+        { trainId: 'Colombo to kurunegala', routeKey: 'route10' },
+    ];
     
     // setInterval(generateAndSaveData, 30000);
-    setInterval(() => generateAndSaveData('train1', 'route1'), 30000); // Train 1 with route 1
-    setInterval(() => generateAndSaveData('train2', 'route2'), 30000);
+    setInterval(() => {
+        trains.forEach(train => generateAndSaveData(train.trainId, train.routeKey));
+    }, 30000);
     
 }
 
@@ -44,11 +59,18 @@ const TrainLocation = mongoose.model('TrainLocation', trainLocationSchema);
 
 
 // // Initialize current waypoint index
-// let currentWaypointIndex = 0;
 
 let currentWaypointIndices = {
-    train1: 0,
-    train2: 0,
+    'Colombo to kandy': 0,
+    'Colombo to negombo': 0,
+    'Colombo to awissawella': 0, 
+    'Colombo to puttalam': 0, 
+    'Colombo to Galle': 0, 
+    'Colombo to Polgahawela': 0, 
+    'Colombo to Padukka': 0,
+    'Colombo to Mahawa': 0,
+    'Colombo to Anuradhapura': 0,
+    'Colombo to kurunegala': 0
 };
 
 

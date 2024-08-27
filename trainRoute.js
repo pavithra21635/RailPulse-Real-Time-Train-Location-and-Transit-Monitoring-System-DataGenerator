@@ -1,61 +1,8 @@
 
 const trainRoute = {
-    //colombo to kurunegala
-    route1: [
-    {"latitude": 7.47657, "longitude": 80.3741},
-    {"latitude": 7.47855, "longitude": 80.37362},
-    {"latitude": 7.48506, "longitude": 80.36429},
-    {"latitude": 7.48499, "longitude": 80.36382},
-    {"latitude": 7.48333, "longitude": 80.36782},
-    {"latitude": 7.48267, "longitude": 80.368},
-    {"latitude": 7.47905, "longitude": 80.35813},
-    {"latitude": 7.47272, "longitude": 80.35081},
-    {"latitude": 7.46622, "longitude": 80.34763},
-    {"latitude": 7.46003, "longitude": 80.34639},
-    {"latitude": 7.45792, "longitude": 80.34612},
-    {"latitude": 7.45064, "longitude": 80.34483},
-    {"latitude": 7.44421, "longitude": 80.34183},
-    {"latitude": 7.43773, "longitude": 80.33824},
-    {"latitude": 7.33167, "longitude": 80.29992},
-    {"latitude": 7.32916, "longitude": 80.29719},
-    {"latitude": 7.31519, "longitude": 80.29362},
-    {"latitude": 7.31095, "longitude": 80.28723},
-    {"latitude": 7.28926, "longitude": 80.27411},
-    {"latitude": 7.2824, "longitude": 80.27037},
-    {"latitude": 7.26919, "longitude": 80.25968},
-    {"latitude": 7.26169, "longitude": 80.25605},
-    {"latitude": 7.25787, "longitude": 80.25068},
-    {"latitude": 7.24197, "longitude": 80.24228},
-    {"latitude": 7.23715, "longitude": 80.24165},
-    {"latitude": 7.23271, "longitude": 80.24318},
-    {"latitude": 7.22758, "longitude": 80.24171},
-    {"latitude": 7.22103, "longitude": 80.23185},
-    {"latitude": 7.21493, "longitude": 80.22753},
-    {"latitude": 7.20893, "longitude": 80.22421},
-    {"latitude": 7.2021, "longitude": 80.22566},
-    {"latitude": 7.19611, "longitude": 80.22874},
-    {"latitude": 7.1914, "longitude": 80.22749},
-    {"latitude": 7.18371, "longitude": 80.22659},
-    {"latitude": 7.1762, "longitude": 80.22442},
-    {"latitude": 7.16534, "longitude": 80.22284},
-    {"latitude": 7.15976, "longitude": 80.21321},
-    {"latitude": 7.15392, "longitude": 80.20545},
-    {"latitude": 7.1488, "longitude": 80.19325},
-    {"latitude": 7.1333, "longitude": 80.185},
-    {"latitude": 7.11043, "longitude": 80.16301},
-    {"latitude": 7.10616, "longitude": 80.15545},
-    {"latitude": 7.08796, "longitude": 80.14574},
-    {"latitude": 7.05236, "longitude": 80.10911},
-    {"latitude": 7.04039, "longitude": 80.09869},
-    {"latitude": 7.02322, "longitude": 80.08589},
-    {"latitude": 6.99612, "longitude": 80.05903},
-    {"latitude": 6.97635, "longitude": 80.05167},
-    {"latitude": 6.93828, "longitude": 80.01766},
-    {"latitude": 6.86624, "longitude": 79.91689}
-],
 
 //colombo to kandy
-route2: [
+route1: [
     
     {"latitude": 7.28989, "longitude": 80.63264},
     {"latitude": 7.28775, "longitude": 80.62967},
@@ -372,7 +319,7 @@ route2: [
 ],
 
 //colombo to negombo
-route3: [
+route2: [
     {"latitude": 7.2104, "longitude": 79.84168},
     {"latitude": 7.21042, "longitude": 79.84189},
         {"latitude": 7.21037, "longitude": 79.84203},
@@ -719,7 +666,7 @@ route3: [
 ],
 
 //colombo to awissawella
-route4: [
+route3: [
     {"latitude": 6.95442, "longitude": 80.20739},
     {"latitude": 6.9545, "longitude": 80.20639},
     {"latitude": 6.9544, "longitude": 80.20598},
@@ -1057,7 +1004,7 @@ route4: [
 ],
 
 //colombo to puttalam
-route5: [
+route4: [
     {"latitude": 8.02252, "longitude": 79.83819},
     {"latitude": 8.02265, "longitude": 79.83795},
     {"latitude": 8.02135, "longitude": 79.83741},
@@ -1380,7 +1327,7 @@ route5: [
 ],
 
 //colombo to galle
-route6: [
+route5: [
     {"latitude": 6.03335, "longitude": 80.21436},
     {"latitude": 6.03398, "longitude": 80.21419},
     {"latitude": 6.0349, "longitude": 80.21409},
@@ -1708,7 +1655,7 @@ route6: [
 ],
 
 //colombo to polgahawela
-route7: [
+route6: [
     {"latitude": 7.33121, "longitude": 80.30098},
     {"latitude": 7.33077, "longitude": 80.30106},
     {"latitude": 7.33058, "longitude": 80.30044},
@@ -2032,7 +1979,7 @@ route7: [
 ],
 
 //colombo to padukka
-route8: [
+route7: [
     {"latitude": 6.84258, "longitude": 80.09137},
     {"latitude": 6.84274, "longitude": 80.09121},
     {"latitude": 6.84199, "longitude": 80.09043},
@@ -2386,7 +2333,7 @@ route8: [
 ],
 
 //colombo to mahawa
-route9: [
+route8: [
     {"latitude": 7.82309, "longitude": 80.27508},
     {"latitude": 7.82190, "longitude": 80.27564},
     {"latitude": 7.81970, "longitude": 80.27596},
@@ -2694,7 +2641,7 @@ route9: [
 ],
 
 //colombo to anuradhapura
-route10: [
+route9: [
     {"latitude": 8.34444, "longitude": 80.41062},
     {"latitude": 8.33826, "longitude": 80.41047},
     {"latitude": 8.33811, "longitude": 80.40701},
@@ -2984,6 +2931,61 @@ route10: [
     {"latitude": 7.41224, "longitude": 79.37460},
     {"latitude": 7.40763, "longitude": 79.37460}
 ],
+
+    //colombo to kurunegala
+    route10: [
+        {"latitude": 7.47657, "longitude": 80.3741},
+        {"latitude": 7.47855, "longitude": 80.37362},
+        {"latitude": 7.48506, "longitude": 80.36429},
+        {"latitude": 7.48499, "longitude": 80.36382},
+        {"latitude": 7.48333, "longitude": 80.36782},
+        {"latitude": 7.48267, "longitude": 80.368},
+        {"latitude": 7.47905, "longitude": 80.35813},
+        {"latitude": 7.47272, "longitude": 80.35081},
+        {"latitude": 7.46622, "longitude": 80.34763},
+        {"latitude": 7.46003, "longitude": 80.34639},
+        {"latitude": 7.45792, "longitude": 80.34612},
+        {"latitude": 7.45064, "longitude": 80.34483},
+        {"latitude": 7.44421, "longitude": 80.34183},
+        {"latitude": 7.43773, "longitude": 80.33824},
+        {"latitude": 7.33167, "longitude": 80.29992},
+        {"latitude": 7.32916, "longitude": 80.29719},
+        {"latitude": 7.31519, "longitude": 80.29362},
+        {"latitude": 7.31095, "longitude": 80.28723},
+        {"latitude": 7.28926, "longitude": 80.27411},
+        {"latitude": 7.2824, "longitude": 80.27037},
+        {"latitude": 7.26919, "longitude": 80.25968},
+        {"latitude": 7.26169, "longitude": 80.25605},
+        {"latitude": 7.25787, "longitude": 80.25068},
+        {"latitude": 7.24197, "longitude": 80.24228},
+        {"latitude": 7.23715, "longitude": 80.24165},
+        {"latitude": 7.23271, "longitude": 80.24318},
+        {"latitude": 7.22758, "longitude": 80.24171},
+        {"latitude": 7.22103, "longitude": 80.23185},
+        {"latitude": 7.21493, "longitude": 80.22753},
+        {"latitude": 7.20893, "longitude": 80.22421},
+        {"latitude": 7.2021, "longitude": 80.22566},
+        {"latitude": 7.19611, "longitude": 80.22874},
+        {"latitude": 7.1914, "longitude": 80.22749},
+        {"latitude": 7.18371, "longitude": 80.22659},
+        {"latitude": 7.1762, "longitude": 80.22442},
+        {"latitude": 7.16534, "longitude": 80.22284},
+        {"latitude": 7.15976, "longitude": 80.21321},
+        {"latitude": 7.15392, "longitude": 80.20545},
+        {"latitude": 7.1488, "longitude": 80.19325},
+        {"latitude": 7.1333, "longitude": 80.185},
+        {"latitude": 7.11043, "longitude": 80.16301},
+        {"latitude": 7.10616, "longitude": 80.15545},
+        {"latitude": 7.08796, "longitude": 80.14574},
+        {"latitude": 7.05236, "longitude": 80.10911},
+        {"latitude": 7.04039, "longitude": 80.09869},
+        {"latitude": 7.02322, "longitude": 80.08589},
+        {"latitude": 6.99612, "longitude": 80.05903},
+        {"latitude": 6.97635, "longitude": 80.05167},
+        {"latitude": 6.93828, "longitude": 80.01766},
+        {"latitude": 6.86624, "longitude": 79.91689}
+    ]
+    
 
 
 };
