@@ -6,6 +6,7 @@ const trainRoute = require('./trainRoute');
 require('dotenv').config();
 
 let authorizationToken;
+let dataGenerationInterval;
 
 //getting aut token
 async function getSuccessToken(token){
@@ -50,10 +51,20 @@ async function DataGeneration(authorizationToken){
     ];
     
     // setInterval(generateAndSaveData, 30000);
-    setInterval(() => {
+    dataGenerationInterval = setInterval(() => {
         trains.forEach(train => generateAndSaveData(train.trainId, train.routeKey));
     }, 1000);
     
+}
+
+// Function to stop data generation
+function stopDataGeneration() {
+    if (dataGenerationInterval) {
+        clearInterval(dataGenerationInterval);
+        console.log('Data generation stopped');
+    } else {
+        console.log('Data generation is not running');
+    }
 }
 
 
@@ -148,4 +159,4 @@ async function generateAndSaveData(trainId, routeKey) {
 }
 
 
-module.exports = {getSuccessToken};
+module.exports = {getSuccessToken,stopDataGeneration};

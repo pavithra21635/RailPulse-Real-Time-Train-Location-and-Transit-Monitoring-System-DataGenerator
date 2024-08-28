@@ -37,9 +37,15 @@ function startAuthenticate(){
     });
 
     // Endpoint to start data generation
-    app.get('/start-data-generation', (req, res) => {
+    app.get('/start', (req, res) => {
     console.log('Data generation triggered from front-end');
     start();
+    });
+
+    app.get('/stop', (req, res) => {
+        console.log('Stop data generation triggered from front-end');
+        dataGenerator.stopDataGeneration();
+        res.status(200).send('Data generation stopped');
     });
 
     
