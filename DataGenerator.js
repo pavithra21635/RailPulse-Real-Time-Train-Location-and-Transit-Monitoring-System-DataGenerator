@@ -34,9 +34,9 @@ async function DataGeneration(authorizationToken){
     // Define all trains and routes
     const trains = [
        // { trainId: 'Colombo to kandy', routeKey: 'route1' },
-        { trainId: 'Colombo to negombo', routeKey: 'route2' },
+        //{ trainId: 'Colombo to negombo', routeKey: 'route2' },
        // { trainId: 'Colombo to awissawella', routeKey: 'route3' },
-       // { trainId: 'Colombo to puttalam', routeKey: 'route4' },
+        { trainId: 'Colombo to puttalam', routeKey: 'route4' },
         // { trainId: 'Colombo to Galle', routeKey: 'route5' },
         // { trainId: 'Colombo to Polgahawela', routeKey: 'route6' },
         // { trainId: 'Colombo to Padukka', routeKey: 'route7' },
@@ -70,9 +70,9 @@ const TrainLocation = mongoose.model('TrainLocation', trainLocationSchema);
 // Initialize current waypoint index
 let currentWaypointIndices = {
    // 'Colombo to kandy': 0,
-    'Colombo to negombo': 0,
+   // 'Colombo to negombo': 0,
     // 'Colombo to awissawella': 0, 
-    // 'Colombo to puttalam': 0, 
+     'Colombo to puttalam': 0, 
     // 'Colombo to Galle': 0, 
     // 'Colombo to Polgahawela': 0, 
     // 'Colombo to Padukka': 0,
