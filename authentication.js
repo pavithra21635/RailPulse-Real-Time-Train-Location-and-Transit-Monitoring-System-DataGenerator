@@ -18,6 +18,9 @@ const databaseUsername = process.env.USERNAME;
 const databasePassword = process.env.PASSWORD;
 const key = 'SecretKey';
 
+// Flag to track if data generation has started
+let isDataGenerationStarted = false;
+
 //authenticating user
 function authenticateUser(username,password) {
     return new Promise((resolve,reject) => {
@@ -40,6 +43,18 @@ function startAuthenticate(){
     .then(token => {
         console.log('Authentication successful');
         dataGenerator.getSuccessToken(token);
+
+        // Start the server to listen for the first request
+        app.get('/', (req, res) => {
+            if (!isDataGenerationStarted) {
+                console.log('First request received, starting data generation...');
+                DataGenerator.DataGeneration();
+                isDataGenerationStarted = true;
+            }
+            res.send('Data generation started');
+        });
+
+
     })
     .catch(error => {
         console.error('Authentication failed:', error.message);
