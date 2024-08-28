@@ -42,7 +42,7 @@ function startAuthenticate(){
     authenticateUser(databaseUsername, databasePassword)
     .then(token => {
         console.log('Authentication successful');
-        dataGenerator.getSuccessToken(token);
+      //  dataGenerator.getSuccessToken(token);
 
         // Start the server to listen for the first request
         app.get('/', (req, res) => {
