@@ -48,7 +48,7 @@ function startAuthenticate(){
         app.get('/', (req, res) => {
             if (!isDataGenerationStarted) {
                 console.log('First request received, starting data generation...');
-                dataGenerator.DataGeneration();
+                dataGenerator.getSuccessToken(token);
                 isDataGenerationStarted = true;
             }
             res.send('Data generation started');
