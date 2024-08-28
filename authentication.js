@@ -45,7 +45,7 @@ function startAuthenticate(){
       //  dataGenerator.getSuccessToken(token);
 
         // Start the server to listen for the first request
-        app.get('/', (req, res) => {
+        app.get('/start', (req, res) => {
             if (!isDataGenerationStarted) {
                 console.log('First request received, starting data generation...');
                 dataGenerator.getSuccessToken(token);
