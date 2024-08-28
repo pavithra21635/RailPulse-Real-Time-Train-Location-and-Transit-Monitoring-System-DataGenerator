@@ -10,8 +10,12 @@ let authorizationToken;
 //getting aut token
 async function getSuccessToken(token){
     authorizationToken = token;
-   // await DataGeneration();
+    await DataGeneration();
 }
+
+
+
+
 
 
 //starting data generation

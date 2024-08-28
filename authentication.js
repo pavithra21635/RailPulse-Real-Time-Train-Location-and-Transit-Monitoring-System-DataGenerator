@@ -36,6 +36,20 @@ function startAuthenticate(){
         console.log(`Authentication server is running on port ${PORT}`);
     });
 
+    // Endpoint to start data generation
+    app.get('/start-data-generation', (req, res) => {
+    console.log('Data generation triggered from front-end');
+    start();
+    });
+
+    
+
+}
+
+function start()
+{
+    
+
     authenticateUser(databaseUsername, databasePassword)
     .then(token => {
         console.log('Authentication successful');
@@ -47,6 +61,9 @@ function startAuthenticate(){
     });
 
 }
+
+
+
 
 
 
