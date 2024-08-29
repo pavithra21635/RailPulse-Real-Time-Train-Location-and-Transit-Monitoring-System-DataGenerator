@@ -7,6 +7,7 @@ const dataGenerator = require('./DataGenerator');
 
 //initialize app
 const app = express();
+
 //Port
 const PORT = process.env.AUTH_SERVER_PORT || 8080;
 const HOST = process.env.AUTH_SERVER_HOST || 'localhost';
@@ -54,8 +55,6 @@ function startAuthenticate(){
 
 function start()
 {
-    
-
     authenticateUser(databaseUsername, databasePassword)
     .then(token => {
         console.log('Authentication successful');
@@ -65,13 +64,9 @@ function start()
         console.error('Authentication failed:', error.message);
  
     });
-
 }
 
 
 
 
-
-
-// module.exports = {startAuthenticate, user};
 module.exports = {startAuthenticate};
