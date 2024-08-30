@@ -50,7 +50,7 @@ async function DataGeneration(authorizationToken){
     // setInterval(generateAndSaveData, 30000);
     dataGenerationInterval = setInterval(() => {
         trains.forEach(train => generateAndSaveData(train.trainId, train.routeKey));
-    }, 1000);
+    }, 60000);
     
 }
 
