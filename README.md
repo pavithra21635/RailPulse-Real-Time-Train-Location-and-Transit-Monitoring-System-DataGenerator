@@ -17,15 +17,6 @@ Authentication: JSON Web Token (JWT)
 Configuration: dotenv for environment variables
 Other Tools: body-parser, HTTP core module
 
-## 📂 Project Structure
-
-├── DataGenerator.js      # Generates and saves train location data
-├── authentication.js     # Handles JWT authentication and API endpoints
-├── trainRoute.js         # Defines train routes and waypoints
-├── .env                  # Environment variables (ignored in Git)
-├── package.json
-└── README.md
-
 ## 🚀 How to Run
 
 Install dependencies - npm install
