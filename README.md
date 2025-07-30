@@ -2,20 +2,20 @@
 
 ## 📌 Features
 
-Real-time train location simulation along predefined routes
-MongoDB integration with Mongoose for data storage
-JWT-based authentication for secure data generation
-REST API endpoints to start and stop data updates
-Error handling and retry mechanism for database connectivity
-
+* **Real-time train location simulation** along predefined routes
+* **MongoDB integration** with Mongoose for data storage
+* **JWT-based authentication** for secure data generation
+* **REST API endpoints** to start and stop data updates
+* **Error handling and retry mechanism** for database connectivity
+  
 ## 🛠️ Tech Stack
 
-Runtime: Node.js (JavaScript ES6)
-Framework: Express.js
-Database: MongoDB with Mongoose
-Authentication: JSON Web Token (JWT)
-Configuration: dotenv for environment variables
-Other Tools: body-parser, HTTP core module
+* **Runtime:** Node.js (JavaScript ES6)
+* **Framework:** Express.js
+* **Database:** MongoDB with Mongoose
+* **Authentication:** JSON Web Token (JWT)
+* **Configuration:** dotenv for environment variables
+* **Other Tools:** body-parser, HTTP core module
 
 ## 🚀 How to Run
 
